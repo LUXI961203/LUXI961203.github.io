@@ -437,10 +437,10 @@
 }
 html {
   height: 100%;
-  border-top: 2px solid #b9babc;
+  border-top: 2px solid #fff;
 }
 body {
-  color: #b9babc;
+  color: #fff;
   background-color: #181818;
   font-size: 15px;
   font-family: "Menlo", monospace;
@@ -475,11 +475,11 @@ body {
 }
 .content a {
   text-decoration: none;
-  color: #b9babc;
+  color: #fff;
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 100% 6px;
-  background-image: linear-gradient(transparent, transparent 5px, #b9babc 5px, #b9babc);
+  background-image: linear-gradient(transparent, transparent 5px, #fff 5px, #fff);
 }
 .content a:hover {
   background-image: linear-gradient(transparent, transparent 4px, #d41c46 4px, #d41c46);
