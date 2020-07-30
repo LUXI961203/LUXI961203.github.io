@@ -511,7 +511,7 @@ body {
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 100% 6px;
-  background-image: linear-gradient(transparent, transparent 6px, #d41c46 6px, #d41c46);
+  background-image: linear-gradient(transparent, transparent 6px, #fff 6px, #fff);
 }
 @media (min-width: 540px) {
   .image-wrap {
@@ -2125,7 +2125,7 @@ pre code {
   zoom: 1;
   margin: -5px 0 5px;
   font-size: 0.9em;
-  color: #999;
+  color: #fff;
 }
 .highlight figcaption a {
   float: right;
