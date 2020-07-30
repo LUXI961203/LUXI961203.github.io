@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="第二周第一天小系统U盘批量制作123456sh write_to_flash.sh minios.4.9.0.img &#x2F;&#x2F;指定镜像路径；watch &amp;#x27;ps -ef | grep minios&amp;#x27; &#x2F;&#x2F;查看镜像的写录的进程；sh flash_adjust.sh  &#x2F;&#x2F;调整U盘的文件[root@localhost ~]# ls0_write_to_disk.sh(需要注释里面的内容)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2020/07/30/lx2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第二周第一天小系统U盘批量制作123456sh write_to_flash.sh minios.4.9.0.img &#x2F;&#x2F;指定镜像路径；watch &amp;#x27;ps -ef | grep minios&amp;#x27; &#x2F;&#x2F;查看镜像的写录的进程；sh flash_adjust.sh  &#x2F;&#x2F;调整U盘的文件[root@localhost ~]# ls0_write_to_disk.sh(需要注释里面的内容)">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-30T02:24:54.087Z">
+<meta property="article:modified_time" content="2020-07-29T09:45:52.839Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Hexo</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+
+    
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    
+<script src="/lib/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">Hexo</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/07/30/lx3/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/07/29/lx/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/30/lx2/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/07/30/lx2/&text="><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/30/lx2/&title="><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/30/lx2/&is_video=false&description="><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2020/07/30/lx2/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/30/lx2/&title="><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/30/lx2/&title="><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/30/lx2/&title="><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/07/30/lx2/&title="><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/30/lx2/&name=&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第二周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%B3%BB%E7%BB%9FU%E7%9B%98%E6%89%B9%E9%87%8F%E5%88%B6%E4%BD%9C"><span class="toc-number">1.1.1.</span> <span class="toc-text">小系统U盘批量制作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E7%9B%98%E7%9A%84%E6%9B%B4%E6%8D%A2"><span class="toc-number">1.1.2.</span> <span class="toc-text">硬盘的更换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python%E7%8C%9C%E6%95%B0%E5%AD%97"><span class="toc-number">1.2.1.</span> <span class="toc-text">Python猜数字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.1.</span> <span class="toc-text">Python中字符串的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第四天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-number">1.4.1.</span> <span class="toc-text">Python关键词</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Hexo</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-07-30T02:24:54.087Z" itemprop="datePublished">2020-07-30</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="第二周"><a href="#第二周" class="headerlink" title="第二周"></a>第二周</h1><h2 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h2><h3 id="小系统U盘批量制作"><a href="#小系统U盘批量制作" class="headerlink" title="小系统U盘批量制作"></a>小系统U盘批量制作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sh write_to_flash.sh minios.4.9.0.img //指定镜像路径；</span><br><span class="line">watch <span class="string">&#x27;ps -ef | grep minios&#x27;</span> //查看镜像的写录的进程；</span><br><span class="line">sh flash_adjust.sh  //调整U盘的文件</span><br><span class="line">[root@localhost ~]<span class="comment"># ls</span></span><br><span class="line">0_write_to_disk.sh(需要注释里面的内容)  flash_adjust.sh   write_to_flash.sh</span><br><span class="line">minios.4.9.0.img  set_ip.sh  //以上文件必须存在；</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">write_to_flash.sh的内容：</span><br><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">num=$(lsscsi -s | grep 8.00GB | wc -l)</span><br><span class="line">i=1</span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$i</span> -le <span class="variable">$num</span> ]</span><br><span class="line"><span class="keyword">do</span>    disk=$(lsscsi -s | grep 8.00GB | awk <span class="string">&#x27;&#123;print $7&#125;&#x27;</span> | sed -n <span class="variable">$i</span>\p)</span><br><span class="line">     nohup dd <span class="keyword">if</span>=<span class="variable">$1</span> of=<span class="variable">$disk</span> bs=3M  &gt; /dev/null 2&gt;&amp;1 &amp; </span><br><span class="line">i=$((<span class="variable">$i</span>+<span class="number">1</span>))</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">flash_adjust.sh的内容：</span><br><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">i=1</span><br><span class="line">num=$(lsscsi -s | grep 8.00GB | awk <span class="string">&#x27;&#123;print $7&#125;&#x27;</span> | wc -l)</span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$i</span> -le <span class="variable">$num</span> ]</span><br><span class="line">    <span class="keyword">do</span> mkdir -p /disk/usb<span class="variable">$i</span></span><br><span class="line">           usb=$(lsscsi -s | grep 8.00GB | awk <span class="string">&#x27;&#123;print $7&#125;&#x27;</span> | sed -n <span class="variable">$i</span>\p)</span><br><span class="line">           mount <span class="variable">$usb</span><span class="string">&#x27;1&#x27;</span> /disk/usb<span class="variable">$i</span></span><br><span class="line">       cat /root/0_write_to_disk.sh &gt; /disk/usb<span class="variable">$i</span>/root/0_write_to_disk.sh </span><br><span class="line">       cp /root/set_ip.sh /disk/usb<span class="variable">$i</span>/root/</span><br><span class="line">       <span class="built_in">echo</span> /dev/sdb &gt; /disk/usb<span class="variable">$i</span>/root/.ssd</span><br><span class="line">       <span class="built_in">echo</span> /dev/sdf &gt; /disk/usb<span class="variable">$i</span>/tmp/.install_to_disk</span><br><span class="line">       umount <span class="variable">$usb</span><span class="string">&#x27;1&#x27;</span></span><br><span class="line">       rm -rf /disk/usb<span class="variable">$i</span></span><br><span class="line">       i=$((<span class="variable">$i</span>+<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">done</span>    </span><br></pre></td></tr></table></figure>
+<h3 id="硬盘的更换"><a href="#硬盘的更换" class="headerlink" title="硬盘的更换"></a>硬盘的更换</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1. 停服务，取消挂载硬盘</span><br><span class="line">systemctl stop skypiea</span><br><span class="line">umount /disk/sata12)</span><br><span class="line">2. 执行 disk_read.sh </span><br><span class="line">脚本<span class="comment">#!/bin/sh</span></span><br><span class="line">TIMES=100</span><br><span class="line"><span class="keyword">for</span> i </span><br><span class="line"><span class="keyword">in</span> `seq 1 <span class="variable">$TIMES</span>`;</span><br><span class="line"><span class="keyword">do</span>        </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$i</span>        </span><br><span class="line"><span class="keyword">for</span> dev <span class="keyword">in</span> `df -h | grep /disk/sata | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>`;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">                dev=<span class="variable">$&#123;dev%1&#125;</span>                </span><br><span class="line">nohup dd <span class="keyword">if</span>=<span class="variable">$dev</span> of=/dev/null bs=10M count=50 iflag=direct 1&gt;&amp;2&gt;/dev/null &amp;</span><br><span class="line"><span class="keyword">done</span>        </span><br><span class="line">sleep 10</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">观察服务器前面板 找到读写指示灯不闪烁的硬盘</span><br><span class="line">3. 服务器端查看 /var/<span class="built_in">log</span>/messages文件 确定新盘的盘符，执行replace.sh，输入盘符以及标签</span><br><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;input drive label : &quot;</span> DRIVE LABEL</span><br><span class="line">parted -s <span class="variable">$DRIVE</span> mklabel gpt &amp;&amp; parted -s <span class="variable">$DRIVE</span> mkpart primary 0% 100%</span><br><span class="line">mkfs.ext4 -L <span class="variable">$LABEL</span> -T largefile <span class="variable">$DRIVE</span><span class="string">&#x27;1&#x27;</span></span><br><span class="line">grep -w <span class="string">&quot;<span class="variable">$LABEL</span>&quot;</span> /etc/rc.local &gt; /tmp/tmp.sh</span><br><span class="line">sh /tmp/tmp.sh</span><br><span class="line">rm -rf /tmp/tmp.sh4）</span><br><span class="line">df -h查看硬盘是否挂载成功,恢复服务 systemctl start skypiea</span><br></pre></td></tr></table></figure>
+<h2 id="第二天"><a href="#第二天" class="headerlink" title="第二天"></a>第二天</h2><h3 id="Python猜数字"><a href="#Python猜数字" class="headerlink" title="Python猜数字"></a>Python猜数字</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#from random import *</span></span><br><span class="line"><span class="keyword">import</span> random <span class="keyword">as</span> rand  //给导入模块取别名；</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ask</span> (<span class="params">s,n1,n2</span>):</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span> :</span><br><span class="line">            num = int(input(s))</span><br><span class="line">            <span class="keyword">if</span> num <span class="keyword">in</span> range (n1,n2):</span><br><span class="line">                <span class="keyword">return</span> num</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">&quot;犯规&quot;</span>)</span><br><span class="line">        <span class="keyword">except</span> :</span><br><span class="line">            print(<span class="string">&quot;犯规&quot;</span>)</span><br><span class="line">//读取生命值，并做检查，合法则跳出死循环；</span><br><span class="line">//<span class="function"><span class="keyword">def</span> 函数的定义，使用及参数传递的说明；</span></span><br><span class="line"><span class="function"></span></span><br><span class="line">ming = ask(&quot;请输入你有几条命：&quot;,1,20)</span><br><span class="line">fanwei = ask(<span class="string">&quot;请输入一个范围：&quot;</span>,<span class="number">20</span>,<span class="number">300</span>)</span><br><span class="line">suiji = rand.randint(<span class="number">1</span>,fanwei)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> ming == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&quot;你死了！,数字是%s&quot;</span> %suiji)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    shuzi = int(input(<span class="string">&quot;输入一个数字：&quot;</span>))</span><br><span class="line">    <span class="keyword">if</span> shuzi &lt; suiji:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">&quot;小了&quot;</span>)</span><br><span class="line">        ming -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> shuzi &gt; suiji:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">&quot;大了&quot;</span>)</span><br><span class="line">        ming -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">&quot;猜对了！&quot;</span>)</span><br><span class="line">        brea</span><br></pre></td></tr></table></figure>
+<h2 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h2><h3 id="Python中字符串的方法"><a href="#Python中字符串的方法" class="headerlink" title="Python中字符串的方法"></a>Python中字符串的方法</h3><ol>
+<li>Python头格式：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#!/usr/bin/python</span></span><br><span class="line">-*- coding: UTF<span class="number">-8</span> -*-</span><br></pre></td></tr></table></figure></li>
+<li>find()方法：find()方法用于检测字符串中是否包含子字符串str;<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find()用法： str.find(str, beg=<span class="number">0</span>, end=len(string));</span><br><span class="line">str -- 指定检索的字符串</span><br><span class="line">beg -- 开始索引，默认为<span class="number">0</span>。</span><br><span class="line">end -- 结束索引，默认为字符串的长度。</span><br></pre></td></tr></table></figure></li>
+<li>Python join() 方法用于将序列中的元素以指定的字符连接生成一个新的字符串。<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">join()用法：</span><br><span class="line">str.join(sequence)；</span><br><span class="line">sequence -- 要连接的元素序列；</span><br></pre></td></tr></table></figure>
+<h2 id="第四天"><a href="#第四天" class="headerlink" title="第四天"></a>第四天</h2><h3 id="Python关键词"><a href="#Python关键词" class="headerlink" title="Python关键词"></a>Python关键词</h3>```py</li>
+<li>and：表示逻辑”与”;</li>
+<li>del：用于list列表操作，删除一个或者连续几个元素;</li>
+<li>from：导入相应的模块，用import或者from…import;</li>
+<li>not：表示逻辑‘非’;</li>
+<li>while：while循环，允许重复执行一块语句，一般无限循环的情况下用它;</li>
+<li>as：当作，as单独没有意思，是这样使用：with….as用来代替传统的try…finally语法的;</li>
+<li>elif: 和if配合使用的，if语句中的一个分支用elif表示；</li>
+<li>global: 定义全局变量，我的理解就是：要想给全局变量重新赋值，就要global一下全局变量；</li>
+<li>or：表示逻辑“或”；</li>
+<li>with：和as一起用，使用的方法请看as，在上面；</li>
+<li>assert：表示断言（断言一个条件就是真的，如果断言出错则抛出异常）用于声明某个条件为真，如果该条件不是真的，抛出异常：AssertionError；</li>
+<li>else：看下面if的解释；</li>
+<li>if：if语句用于选择分支，依据条件选择执行那个语句块；</li>
+<li>pass：pass的意思就是什么都不做。用途及理解：当我们写一个软件的框架的时候，具体方法啊，类啊之类的都不写，等着后续工作在做；</li>
+<li>yield：迭代，用起来和return很像，但它返回的是一个生成器；</li>
+<li>break  ：作用是终止循环，程序走到break的地方就是循环结束的时候。（有点强行终止的意思）注意：如果从for或while循环中终止（break）之后 ，else语句不执行；</li>
+<li>except ：和try一起使用，用来捕获异常；</li>
+<li>import ：用来导入模块，有时这样用from….import；</li>
+<li>print：输出；</li>
+<li>class：定义类；</li>
+<li>continue：Python continue 语句跳出本次循环，而break跳出整个循环，continue 语句用来告诉Python跳过当前循环的剩余语句，然后继续进行下一轮循环，continue语句用在while和for循环中；</li>
+<li>raise: raise是用来抛出异常的，一旦抛出异常后，后续的代码将无法运行;</li>
+<li>try：try 关键字用于 try…except 块中。它定义了代码测试块是否包含任何错误；</li>
+<li>finally：最后，finally 关键字在 try … except 块中使用。它定义了一个代码块，当 try…except…else 块结束时，该代码块将运行，无论 try 块是否引发错误，都将执行 finally 块；</li>
+<li>None: None 关键字用于定义 null 值，或根本没有值。None 与 0、False 或空字符串不同。 None 是其自身的数据类型（NoneType），并且只有 None 可以是 None;</li>
+<li>def: def 关键字用于创建（或定义）函数;</li>
+<li>True: 关键字是一个布尔值，是比较运算的结果,True 关键字与 1 相同（Fals 与 0 相同）;</li>
+<li>False: False 关键字是布尔值，是比较运算的结果。False 关键字等同于 0（True 等同于 1）;</li>
+<li>exec: exec 执行储存在字符串或文件中的Python语句，相比于 eval，exec可以执行更复杂的 Python 代码;</li>
+<li>lambda: lambda 关键字用于创建小型匿名函数。Lambda 函数可以接受任意数量的参数，但只能拥有一个表达式。这个表达式会被计算并返回结果;</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第二周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%B3%BB%E7%BB%9FU%E7%9B%98%E6%89%B9%E9%87%8F%E5%88%B6%E4%BD%9C"><span class="toc-number">1.1.1.</span> <span class="toc-text">小系统U盘批量制作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E7%9B%98%E7%9A%84%E6%9B%B4%E6%8D%A2"><span class="toc-number">1.1.2.</span> <span class="toc-text">硬盘的更换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python%E7%8C%9C%E6%95%B0%E5%AD%97"><span class="toc-number">1.2.1.</span> <span class="toc-text">Python猜数字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.1.</span> <span class="toc-text">Python中字符串的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第四天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-number">1.4.1.</span> <span class="toc-text">Python关键词</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/30/lx2/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/07/30/lx2/&text="><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/30/lx2/&title="><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/30/lx2/&is_video=false&description="><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2020/07/30/lx2/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/30/lx2/&title="><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/30/lx2/&title="><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/30/lx2/&title="><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/07/30/lx2/&title="><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/30/lx2/&name=&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 John Doe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>

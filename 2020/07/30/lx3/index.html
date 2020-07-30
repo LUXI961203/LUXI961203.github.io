@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="第三周第一天Ansible的安装和基础知识1234567Ansible的优点：1. 仅需管理主机安装并配置即可，所有的配置工作都通过ssh连接下发至被管理主机。轻量化2. Python编写，源代码可读性强。同时playbook使用yml配置，容易上手对于集群和ECS的支持非常完美。3. 支持大量API接入，并且对于python的扩展支持良好。4. 由于架构出色，理论上在管理主机性能到位的情况下可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2020/07/30/lx3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第三周第一天Ansible的安装和基础知识1234567Ansible的优点：1. 仅需管理主机安装并配置即可，所有的配置工作都通过ssh连接下发至被管理主机。轻量化2. Python编写，源代码可读性强。同时playbook使用yml配置，容易上手对于集群和ECS的支持非常完美。3. 支持大量API接入，并且对于python的扩展支持良好。4. 由于架构出色，理论上在管理主机性能到位的情况下可以">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-30T02:24:54.091Z">
+<meta property="article:modified_time" content="2020-07-30T02:05:03.098Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Hexo</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+
+    
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    
+<script src="/lib/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">Hexo</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/07/30/lx2/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/30/lx3/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/07/30/lx3/&text="><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/30/lx3/&title="><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/30/lx3/&is_video=false&description="><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2020/07/30/lx3/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/30/lx3/&title="><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/30/lx3/&title="><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/30/lx3/&title="><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/07/30/lx3/&title="><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/30/lx3/&name=&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第三周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">Ansible的安装和基础知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.1.</span> <span class="toc-text">Ansible中的参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%9E%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">服务器上架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第四天</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Hexo</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-07-30T02:24:54.091Z" itemprop="datePublished">2020-07-30</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="第三周"><a href="#第三周" class="headerlink" title="第三周"></a>第三周</h1><h2 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h2><h3 id="Ansible的安装和基础知识"><a href="#Ansible的安装和基础知识" class="headerlink" title="Ansible的安装和基础知识"></a>Ansible的安装和基础知识</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ansible的优点：</span><br><span class="line">1. 仅需管理主机安装并配置即可，所有的配置工作都通过ssh连接下发至被管理主机。</span><br><span class="line">轻量化</span><br><span class="line">2. Python编写，源代码可读性强。同时playbook使用yml配置，容易上手</span><br><span class="line">对于集群和ECS的支持非常完美。</span><br><span class="line">3. 支持大量API接入，并且对于python的扩展支持良好。</span><br><span class="line">4. 由于架构出色，理论上在管理主机性能到位的情况下可以同时配置近乎无限的主机。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Ansible的安装 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release //安装epel源，来获得更高版本的ansible;</span><br><span class="line">yum -y install ansible //安装ansible;</span><br><span class="line">ansible --version  //查看ansible的版本;</span><br></pre></td></tr></table></figure></li>
+<li>密钥的配置  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将管理端的公钥加入到被管理端的.ssh/authorized_keys中;</span><br></pre></td></tr></table></figure></li>
+<li>将受管理的机器IP加入管理Ansible <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">例如：</span><br><span class="line">vim /etc/ansible/hosts</span><br><span class="line">172.26.0.81              <span class="comment">##不分组直接声明IP</span></span><br><span class="line">172.26.0.82:54208        <span class="comment">##申明特殊的ssh端口</span></span><br><span class="line"></span><br><span class="line">[fangwei-test]           <span class="comment">##申明了受管机的列表和分类名</span></span><br><span class="line">172.26.0.83              <span class="comment">##直接声明IP</span></span><br><span class="line">Printer     ansible_ssh_host=172.26.0.84    <span class="comment">##定义别名和IP</span></span><br><span class="line">EMR-master  ansible_ssh_host=172.26.0.85</span><br><span class="line">Snipe-it    ansible_ssh_host=172.26.0.86</span><br><span class="line">Kubernetes  ansible_ssh_host=172.26.0.87</span><br></pre></td></tr></table></figure></li>
+<li>模块 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">1. Command模块</span><br><span class="line"> Command模块自如其名，就是一个很纯粹的命令执行模块，用于在受管机上进行命令的执行，其本身也可以配合很多二级参数和指令进行功能的扩展。不支持管道功能。</span><br><span class="line">  用法：ansible fangwei（定义的组） -m <span class="built_in">command</span> -a <span class="string">&#x27;hostname&#x27;</span> ;</span><br><span class="line"></span><br><span class="line">2. Ping模块</span><br><span class="line"> ping这个模块主要用来测试能否连通目标服务器。</span><br><span class="line"> 用法： ansible <span class="built_in">test</span>（定义的组） -m ping ;</span><br><span class="line"></span><br><span class="line">3. Copy模块</span><br><span class="line"> Copy模块主要用于复制文件到远程主机；</span><br><span class="line"></span><br><span class="line"> 参数使用：</span><br><span class="line"> backup：在覆盖之前将源文件备份，备份文件包含时间信息，选项：yes|no</span><br><span class="line"> content：用于替代”src”，可以直接设定文件的值</span><br><span class="line"> directory_node：递归的设定目录权限，默认为系统默认权限</span><br><span class="line"> force：如果目标主机包含该文件，但内容不同，如果设置为yes，则强制覆盖；如果设置为no，则只有当目标主机的目标位置不存在该文件时，才复制。默认为yes</span><br><span class="line"> others：所有file模块里的选项都可以在这里使用</span><br><span class="line"> src：要复制到远程主机的文件在本地的地址，可以是绝对路径，也可以是相对路径。</span><br><span class="line"></span><br><span class="line"> 用法： ansible fangwei -m copy -a <span class="string">&#x27;src=/root/ninngenn.cfg dest=/root/ninngenn.cfg force=yes&#x27;</span>; src:当前的路径， dest：目标路径。</span><br><span class="line"></span><br><span class="line">4. File模块</span><br><span class="line"> File模块主要是对于文件的一些简单操作，主要是创建或者权限设定，已经文件的存在判断等。</span><br><span class="line"> </span><br><span class="line"> 用法： ansible fangwei（定义的组） -m file -a <span class="string">&#x27;path=/root/ninngenn.cfg state=touch&#x27;</span>;</span><br><span class="line"></span><br><span class="line">5. Script模块</span><br><span class="line"> 这个模块用于在受管机上执行sh脚本。</span><br><span class="line"></span><br><span class="line"> 用法：ansible test_hosts（定义的组） -m script -a <span class="string">&#x27;/tmp/script.sh&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="第二天"><a href="#第二天" class="headerlink" title="第二天"></a>第二天</h2><h3 id="Ansible中的参数"><a href="#Ansible中的参数" class="headerlink" title="Ansible中的参数"></a>Ansible中的参数</h3> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ansible_ssh_host    定义hosts ssh地址    ansible_ssh_host=192.169.1.100</span><br><span class="line">ansible_ssh_port    定义hosts ssh端口    ansible_ssh_port=300</span><br><span class="line">ansible_ssh_user    定义hosts ssh认证用户    ansible_ssh_user=user</span><br><span class="line">ansible_ssh_pass    定义hosts ssh认证密码    ansible_ssh_pass=pass</span><br><span class="line">ansible_sudo            定义hosts sudo用户    ansible_sudo=www</span><br><span class="line">ansible_sudo_pass    定义hosts sudo密码    ansible_sudo_pass=pass</span><br><span class="line">ansible_sudo_exe    定义hosts sudo路径    ansible_sudo_exe=lusr/bin/sudo</span><br><span class="line">ansible_connection    定义hosts连接方式    ansible_connection=<span class="built_in">local</span></span><br><span class="line">ansible_ssh_private_key_file    定义hosts私钥    ansible_ssh_private_key_file=/root/key</span><br><span class="line">ansible_ssh_shell_type            定义hosts shell类型    ansible_ssh_shell_type=bash</span><br><span class="line">ansible_python_interpreter     定义hosts任务执行python路径    ansible_python_interpreter=/usr/bin/python2.6</span><br><span class="line">ansible_*_interpreter            定义hosts其它语言解析路径    ansible_*_interpreter=/usribin/ruby</span><br></pre></td></tr></table></figure>
+<h2 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h2><h3 id="服务器上架"><a href="#服务器上架" class="headerlink" title="服务器上架"></a>服务器上架</h3><ol>
+<li>链路聚合<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1. <span class="built_in">cd</span> /etc/sysconfig/network-script/</span><br><span class="line">2. touch ifcfg-band0 //自己创建一个band0文件；</span><br><span class="line">3. vim ifcfg-bond0</span><br><span class="line">   DEVICE=bond0</span><br><span class="line">   ONBOOT=yes</span><br><span class="line">   IPADDR=111.111.111.111</span><br><span class="line">   PREFIX＝24</span><br><span class="line">   GATEWAY=111.111.111.1</span><br><span class="line">   BONDING_MASTER=yes</span><br><span class="line">   BONDING_OPTS=<span class="string">&quot;miimon=100 mode=2 xmit_hash_policy=1&quot;</span></span><br><span class="line">4. vim ifcfg-eth0和ifcfg-eth1 //将两张网卡绑定在一起；</span><br><span class="line">   IPADDR=</span><br><span class="line">   MASTER=bond0</span><br><span class="line">   SLAVE=yes</span><br><span class="line">5. systemclt restart network</span><br><span class="line">6. <span class="built_in">echo</span> nameserver 114.114.114.114 &gt;&gt; /etc/resolv.conf //配置DNS；</span><br><span class="line">7. systemclt stop firewalld //关闭防火墙；</span><br><span class="line">8. systemclt <span class="built_in">disable</span> firewalld //开机不自行启动；</span><br><span class="line">9. setenforce 0 //要到配置文件永久关闭；</span><br><span class="line">10. sed -i <span class="string">&#x27;s/#Port 22/Port 65422/g&#x27;</span> /etc/ssh/sshd_config //将端口改为65422；</span><br><span class="line">11. systemclt restart sshd //重启ssd；</span><br><span class="line">12.  sh adjust_centos7.sh //网络配置好就可以执行此脚本；</span><br></pre></td></tr></table></figure></li>
+<li>检验服务器是否搭建完成<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l | grep 2000 | wc -l //查看2T盘的数量；</span><br><span class="line">cat /proc/cpuinfo | grep processor | wc -l //查看cpu的线程数；</span><br><span class="line">free -g //检查内存；</span><br><span class="line">ethtool bond0 | grep Speed  //查看网络速率；</span><br></pre></td></tr></table></figure>
+<h2 id="第四天"><a href="#第四天" class="headerlink" title="第四天"></a>第四天</h2></li>
+</ol>
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第三周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">Ansible的安装和基础知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.1.</span> <span class="toc-text">Ansible中的参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%9E%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">服务器上架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第四天</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/30/lx3/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/07/30/lx3/&text="><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/30/lx3/&title="><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/30/lx3/&is_video=false&description="><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: http://yoursite.com/2020/07/30/lx3/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/30/lx3/&title="><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/30/lx3/&title="><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/30/lx3/&title="><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/07/30/lx3/&title="><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/30/lx3/&name=&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 John Doe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>
