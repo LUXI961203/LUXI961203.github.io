@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="第三周第一天Ansible的安装和基础知识1234567Ansible的优点：1. 仅需管理主机安装并配置即可，所有的配置工作都通过ssh连接下发至被管理主机。轻量化2. Python编写，源代码可读性强。同时playbook使用yml配置，容易上手对于集群和ECS的支持非常完美。3. 支持大量API接入，并且对于python的扩展支持良好。4. 由于架构出色，理论上在管理主机性能到位的情况下可以">
+    <meta name="description" content="第三周第一天Ansible的安装和基础知识12345Ansible的优点：1. 仅需管理主机安装并配置即可，所有的配置工作都通过ssh连接下发至被管理主机。轻量化2. Python编写，源代码可读性强。同时playbook使用yml配置，容易上手对于集群和ECS的支持非常完美。3. 支持大量API接入，并且对于python的扩展支持良好。4. 由于架构出色，理论上在管理主机性能到位的情况下可以同时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Week Three">
-<meta property="og:url" content="http://yoursite.com/2020/07/31/lx3/index.html">
+<meta property="og:title" content="Week two">
+<meta property="og:url" content="http://yoursite.com/2020/07/23/lx3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第三周第一天Ansible的安装和基础知识1234567Ansible的优点：1. 仅需管理主机安装并配置即可，所有的配置工作都通过ssh连接下发至被管理主机。轻量化2. Python编写，源代码可读性强。同时playbook使用yml配置，容易上手对于集群和ECS的支持非常完美。3. 支持大量API接入，并且对于python的扩展支持良好。4. 由于架构出色，理论上在管理主机性能到位的情况下可以">
+<meta property="og:description" content="第三周第一天Ansible的安装和基础知识12345Ansible的优点：1. 仅需管理主机安装并配置即可，所有的配置工作都通过ssh连接下发至被管理主机。轻量化2. Python编写，源代码可读性强。同时playbook使用yml配置，容易上手对于集群和ECS的支持非常完美。3. 支持大量API接入，并且对于python的扩展支持良好。4. 由于架构出色，理论上在管理主机性能到位的情况下可以同时">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-31T04:00:00.000Z">
-<meta property="article:modified_time" content="2020-07-30T03:06:37.268Z">
+<meta property="article:published_time" content="2020-07-23T04:00:00.000Z">
+<meta property="article:modified_time" content="2020-07-31T07:31:57.690Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -36,7 +36,7 @@
         
     
     <!-- title -->
-    <title>Week Three</title>
+    <title>Week two</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
@@ -112,8 +112,10 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2020/07/23/lx2/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
         
-        <li><a class="icon" href="/2020/07/29/test-my-site/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="/2020/07/18/lx/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
@@ -126,21 +128,21 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/31/lx3/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/07/31/lx3/&text=Week Three"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/31/lx3/&title=Week Three"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/31/lx3/&is_video=false&description=Week Three"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Week Three&body=Check out this article: http://yoursite.com/2020/07/31/lx3/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/31/lx3/&title=Week Three"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/31/lx3/&title=Week Three"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/31/lx3/&title=Week Three"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/07/31/lx3/&title=Week Three"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/31/lx3/&name=Week Three&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/23/lx3/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/07/23/lx3/&text=Week two"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/23/lx3/&title=Week two"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/23/lx3/&is_video=false&description=Week two"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Week two&body=Check out this article: http://yoursite.com/2020/07/23/lx3/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/23/lx3/&title=Week two"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/23/lx3/&title=Week two"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/23/lx3/&title=Week two"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/07/23/lx3/&title=Week two"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/23/lx3/&name=Week two&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第三周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">Ansible的安装和基础知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.1.</span> <span class="toc-text">Ansible中的参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%9E%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">服务器上架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第四天</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第三周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">Ansible的安装和基础知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.1.</span> <span class="toc-text">Ansible中的参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%9E%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">服务器上架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第四天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.1.</span> <span class="toc-text">H3C交换机配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%A4%A9"><span class="toc-number">1.5.</span> <span class="toc-text">第五天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E7%9A%84%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93"><span class="toc-number">1.5.1.</span> <span class="toc-text">Linux的文件传输</span></a></li></ol></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -152,7 +154,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        Week Three
+        Week two
     </h1>
 
 
@@ -163,7 +165,7 @@
       </span>
       
     <div class="postdate">
-        <time datetime="2020-07-31T04:00:00.000Z" itemprop="datePublished">2020-07-31</time>
+        <time datetime="2020-07-23T04:00:00.000Z" itemprop="datePublished">2020-07-23</time>
     </div>
 
 
@@ -174,7 +176,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="第三周"><a href="#第三周" class="headerlink" title="第三周"></a>第三周</h1><h2 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h2><h3 id="Ansible的安装和基础知识"><a href="#Ansible的安装和基础知识" class="headerlink" title="Ansible的安装和基础知识"></a>Ansible的安装和基础知识</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ansible的优点：</span><br><span class="line">1. 仅需管理主机安装并配置即可，所有的配置工作都通过ssh连接下发至被管理主机。</span><br><span class="line">轻量化</span><br><span class="line">2. Python编写，源代码可读性强。同时playbook使用yml配置，容易上手</span><br><span class="line">对于集群和ECS的支持非常完美。</span><br><span class="line">3. 支持大量API接入，并且对于python的扩展支持良好。</span><br><span class="line">4. 由于架构出色，理论上在管理主机性能到位的情况下可以同时配置近乎无限的主机。</span><br></pre></td></tr></table></figure>
+    <h1 id="第三周"><a href="#第三周" class="headerlink" title="第三周"></a>第三周</h1><h2 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h2><h3 id="Ansible的安装和基础知识"><a href="#Ansible的安装和基础知识" class="headerlink" title="Ansible的安装和基础知识"></a>Ansible的安装和基础知识</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ansible的优点：</span><br><span class="line">1. 仅需管理主机安装并配置即可，所有的配置工作都通过ssh连接下发至被管理主机。轻量化</span><br><span class="line">2. Python编写，源代码可读性强。同时playbook使用yml配置，容易上手对于集群和ECS的支持非常完美。</span><br><span class="line">3. 支持大量API接入，并且对于python的扩展支持良好。</span><br><span class="line">4. 由于架构出色，理论上在管理主机性能到位的情况下可以同时配置近乎无限的主机。</span><br></pre></td></tr></table></figure>
 <ol>
 <li>Ansible的安装 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release //安装epel源，来获得更高版本的ansible;</span><br><span class="line">yum -y install ansible //安装ansible;</span><br><span class="line">ansible --version  //查看ansible的版本;</span><br></pre></td></tr></table></figure></li>
 <li>密钥的配置  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将管理端的公钥加入到被管理端的.ssh/authorized_keys中;</span><br></pre></td></tr></table></figure></li>
@@ -184,8 +186,12 @@
 <h2 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h2><h3 id="服务器上架"><a href="#服务器上架" class="headerlink" title="服务器上架"></a>服务器上架</h3><ol>
 <li>链路聚合<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1. <span class="built_in">cd</span> /etc/sysconfig/network-script/</span><br><span class="line">2. touch ifcfg-band0 //自己创建一个band0文件；</span><br><span class="line">3. vim ifcfg-bond0</span><br><span class="line">   DEVICE=bond0</span><br><span class="line">   ONBOOT=yes</span><br><span class="line">   IPADDR=111.111.111.111</span><br><span class="line">   PREFIX＝24</span><br><span class="line">   GATEWAY=111.111.111.1</span><br><span class="line">   BONDING_MASTER=yes</span><br><span class="line">   BONDING_OPTS=<span class="string">&quot;miimon=100 mode=2 xmit_hash_policy=1&quot;</span></span><br><span class="line">4. vim ifcfg-eth0和ifcfg-eth1 //将两张网卡绑定在一起；</span><br><span class="line">   IPADDR=</span><br><span class="line">   MASTER=bond0</span><br><span class="line">   SLAVE=yes</span><br><span class="line">5. systemclt restart network</span><br><span class="line">6. <span class="built_in">echo</span> nameserver 114.114.114.114 &gt;&gt; /etc/resolv.conf //配置DNS；</span><br><span class="line">7. systemclt stop firewalld //关闭防火墙；</span><br><span class="line">8. systemclt <span class="built_in">disable</span> firewalld //开机不自行启动；</span><br><span class="line">9. setenforce 0 //要到配置文件永久关闭；</span><br><span class="line">10. sed -i <span class="string">&#x27;s/#Port 22/Port 65422/g&#x27;</span> /etc/ssh/sshd_config //将端口改为65422；</span><br><span class="line">11. systemclt restart sshd //重启ssd；</span><br><span class="line">12.  sh adjust_centos7.sh //网络配置好就可以执行此脚本；</span><br></pre></td></tr></table></figure></li>
 <li>检验服务器是否搭建完成<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l | grep 2000 | wc -l //查看2T盘的数量；</span><br><span class="line">cat /proc/cpuinfo | grep processor | wc -l //查看cpu的线程数；</span><br><span class="line">free -g //检查内存；</span><br><span class="line">ethtool bond0 | grep Speed  //查看网络速率；</span><br></pre></td></tr></table></figure>
-<h2 id="第四天"><a href="#第四天" class="headerlink" title="第四天"></a>第四天</h2></li>
+<h2 id="第四天"><a href="#第四天" class="headerlink" title="第四天"></a>第四天</h2><h3 id="H3C交换机配置"><a href="#H3C交换机配置" class="headerlink" title="H3C交换机配置"></a>H3C交换机配置</h3></li>
 </ol>
+</li>
+<li>接口IP地址配置<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">进入系统视图：system-view;</span><br><span class="line">进入接口视图：interface interface-type interface-number;</span><br><span class="line">配置接口的IP地址：ip address ip-address &#123; mask-length | mask &#125; [ sub ];</span><br><span class="line">例如：</span><br><span class="line">&lt;Switch&gt; system-view;</span><br><span class="line">[Switch] interface vlan-interface 1;</span><br><span class="line">[Switch-Vlan-interface1] ip address 172.16.1.1 255.255.255.0;</span><br><span class="line">[Switch-Vlan-interface1] ip address 172.16.2.1 255.255.255.0 sub;</span><br><span class="line"></span><br><span class="line">IP地址的显示:</span><br><span class="line">显示三层接口的相关信息:display ip interface [ interface-type interface-number ] [ | &#123; begin | exclude | include &#125; regular-expression ];</span><br><span class="line">显示三层接口的IP基本配置信息:display ip interface [ interface-type [ interface-number ] ] brief [ | &#123; begin | exclude | include &#125; regular-expression ];</span><br></pre></td></tr></table></figure></li>
+<li>VLAN的划分<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">进入系统视图: system-view;</span><br><span class="line">创建VLAN: vlan vlan-id1 [; to vlan-id2 ]</span><br><span class="line">指定当前VLAN的名称: name text;</span><br><span class="line">为VLAN指定一个描述字符串: description text;</span><br><span class="line"></span><br><span class="line">配置基于Access端口的VLAN:</span><br><span class="line">进入VLAN视图:vlan vlan-id</span><br><span class="line">进入以太网接口视图:interface interface-type interface-number;</span><br><span class="line">进入端口组视图:port-group manual port-group-name;</span><br><span class="line">进入二层聚合接口视图:interface bridge-aggregation interface-number;</span><br><span class="line">配置端口的链路类型为Access类型:port link-type access;</span><br><span class="line">将当前Access端口加入到指定VLAN:port access vlan vlan-id;</span><br></pre></td></tr></table></figure>
+<h2 id="第五天"><a href="#第五天" class="headerlink" title="第五天"></a>第五天</h2><h3 id="Linux的文件传输"><a href="#Linux的文件传输" class="headerlink" title="Linux的文件传输"></a>Linux的文件传输</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. 安装传输包：yum install -y lrzsz；</span><br><span class="line">rz：将本机的文件传输到Linux操作系统上；</span><br><span class="line">sz：将Linux操作系统上的文件传输到本机上；</span><br><span class="line"></span><br><span class="line">2. Linux中的公钥生成:</span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your_email@youremail.com&quot;</span>（-C 后面可以自行定义，也可以不写）；</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -214,21 +220,21 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第三周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">Ansible的安装和基础知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.1.</span> <span class="toc-text">Ansible中的参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%9E%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">服务器上架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第四天</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第三周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">Ansible的安装和基础知识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ansible%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.1.</span> <span class="toc-text">Ansible中的参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%9E%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">服务器上架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第四天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.1.</span> <span class="toc-text">H3C交换机配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%A4%A9"><span class="toc-number">1.5.</span> <span class="toc-text">第五天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E7%9A%84%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93"><span class="toc-number">1.5.1.</span> <span class="toc-text">Linux的文件传输</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/31/lx3/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/07/31/lx3/&text=Week Three"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/31/lx3/&title=Week Three"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/31/lx3/&is_video=false&description=Week Three"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Week Three&body=Check out this article: http://yoursite.com/2020/07/31/lx3/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/31/lx3/&title=Week Three"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/31/lx3/&title=Week Three"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/31/lx3/&title=Week Three"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/07/31/lx3/&title=Week Three"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/31/lx3/&name=Week Three&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/23/lx3/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/07/23/lx3/&text=Week two"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/23/lx3/&title=Week two"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/23/lx3/&is_video=false&description=Week two"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Week two&body=Check out this article: http://yoursite.com/2020/07/23/lx3/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/23/lx3/&title=Week two"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/23/lx3/&title=Week two"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/23/lx3/&title=Week two"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/07/23/lx3/&title=Week two"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/23/lx3/&name=Week two&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
