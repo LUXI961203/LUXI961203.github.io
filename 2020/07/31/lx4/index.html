@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="第四周第一天远程访问的步骤1234567[root@ops .ssh]# ll id_rsa  &#x2F;&#x2F;查看软连接；lrwxrwxrwx. 1 root root 4 Jul 23 08:54 id_rsa -&gt; x.lu[root@ops .ssh]# rm -fr id_rsa  &#x2F;&#x2F;将原有的软连接删除；[root@ops .ssh]# rm -fr x.lu   &#x2F;&#x2F;移除x.lu的私钥；[">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Week four">
+<meta property="og:url" content="http://yoursite.com/2020/07/31/lx4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第四周第一天远程访问的步骤1234567[root@ops .ssh]# ll id_rsa  &#x2F;&#x2F;查看软连接；lrwxrwxrwx. 1 root root 4 Jul 23 08:54 id_rsa -&gt; x.lu[root@ops .ssh]# rm -fr id_rsa  &#x2F;&#x2F;将原有的软连接删除；[root@ops .ssh]# rm -fr x.lu   &#x2F;&#x2F;移除x.lu的私钥；[">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-31T04:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-07T08:15:28.418Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Week four</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+
+    
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    
+<script src="/lib/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">Hexo</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/07/31/lx3/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/07/29/test-my-site/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/31/lx4/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/07/31/lx4/&text=Week four"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/31/lx4/&title=Week four"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/31/lx4/&is_video=false&description=Week four"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Week four&body=Check out this article: http://yoursite.com/2020/07/31/lx4/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/31/lx4/&title=Week four"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/31/lx4/&title=Week four"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/31/lx4/&title=Week four"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/07/31/lx4/&title=Week four"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/31/lx4/&name=Week four&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第四周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.1.1.</span> <span class="toc-text">远程访问的步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SCP%E7%9A%84%E8%BF%90%E7%94%A8"><span class="toc-number">1.1.2.</span> <span class="toc-text">SCP的运用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E9%95%9C%E5%83%8F%E5%86%99%E5%85%A5U%E7%9B%98"><span class="toc-number">1.2.1.</span> <span class="toc-text">将镜像写入U盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A3%85%E6%9C%BA"><span class="toc-number">1.2.2.</span> <span class="toc-text">装机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97"><span class="toc-number">1.3.1.</span> <span class="toc-text">磁盘阵列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第四天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%83%A0%E6%99%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AF%BB%E5%8F%96%E4%B8%8D%E5%88%B0%E7%A1%AC%E7%9B%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">1.4.1.</span> <span class="toc-text">惠普服务器读取不到硬盘解决方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%A4%A9"><span class="toc-number">1.5.</span> <span class="toc-text">第五天</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Week four
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Hexo</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-07-31T04:00:00.000Z" itemprop="datePublished">2020-07-31</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="第四周"><a href="#第四周" class="headerlink" title="第四周"></a>第四周</h1><h2 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h2><h3 id="远程访问的步骤"><a href="#远程访问的步骤" class="headerlink" title="远程访问的步骤"></a>远程访问的步骤</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@ops .ssh]<span class="comment"># ll id_rsa  //查看软连接；</span></span><br><span class="line">lrwxrwxrwx. 1 root root 4 Jul 23 08:54 id_rsa -&gt; x.lu</span><br><span class="line">[root@ops .ssh]<span class="comment"># rm -fr id_rsa  //将原有的软连接删除；</span></span><br><span class="line">[root@ops .ssh]<span class="comment"># rm -fr x.lu   //移除x.lu的私钥；</span></span><br><span class="line">[root@ops .ssh]<span class="comment"># rz  //上传远程x.lu主机的私钥；</span></span><br><span class="line">[root@ops .ssh]<span class="comment"># chmod 400 id_rsa_2048 //修改文件的权限；</span></span><br><span class="line">[root@ops .ssh]<span class="comment"># ssh -i id_rsa_2048 x.lu@115.231.100.76 -p 65422  //-i identity_file 从-i id_rsa_2048中读取传输时使用的密钥文件，此参数直接传递给ssh，然使用65422端口；</span></span><br></pre></td></tr></table></figure>
+<h3 id="SCP的运用"><a href="#SCP的运用" class="headerlink" title="SCP的运用"></a>SCP的运用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">scp的六种使用方法:</span><br><span class="line">1. 本地复制远程文件：（把远程的文件复制到本地）</span><br><span class="line">scp root@www.test.com:/val/<span class="built_in">test</span>/test.tar.gz /val/<span class="built_in">test</span>/test.tar.gz</span><br><span class="line">2. 远程复制本地文件：（把本地的文件复制到远程主机上）</span><br><span class="line">scp /val/test.tar.gz root@www.test.com:/val/test.tar.gz</span><br><span class="line">3. 本地复制远程目录：（把远程的目录复制到本地）</span><br><span class="line">scp -r root@www.test.com:/val/<span class="built_in">test</span>/ /val/<span class="built_in">test</span>/</span><br><span class="line">4. 远程复制本地目录：（把本地的目录复制到远程主机上）</span><br><span class="line">scp -r ./ubuntu_env/ root@192.168.0.111:/home/pipi</span><br><span class="line">pika:/media/pika/files/machine_learning/datasets<span class="variable">$scp</span> -r SocialNetworks/ piting@192.168.0.172:/media/data/pipi/datasets</span><br><span class="line">5. 本地复制远程文件到指定目录：（把远程的文件复制到本地）</span><br><span class="line">scp root@www.test.com:/val/<span class="built_in">test</span>/test.tar.gz /val/<span class="built_in">test</span>/</span><br><span class="line">6. 远程复制本地文件到指定目录：（把本地的文件复制到远程主机上）</span><br><span class="line">scp /val/test.tar.gz root@www.test.com:/val/</span><br></pre></td></tr></table></figure>
+<h2 id="第二天"><a href="#第二天" class="headerlink" title="第二天"></a>第二天</h2><h3 id="将镜像写入U盘"><a href="#将镜像写入U盘" class="headerlink" title="将镜像写入U盘"></a>将镜像写入U盘</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 下载镜像到指定文件夹，然后执行下列命令；</span><br><span class="line">2. dd <span class="keyword">if</span>=/root/centos6.8.iso of=/dev/sdb</span><br></pre></td></tr></table></figure>
+<h3 id="装机"><a href="#装机" class="headerlink" title="装机"></a>装机</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. centos.6的装机</span><br><span class="line">第一步：进入U盘系统；</span><br><span class="line">第二步：划分一个40000MB根（/）分区和一个8000MBswap分区；</span><br><span class="line">第三步：重启；</span><br><span class="line">2.centos.7的装机</span><br><span class="line">第一步：进入U盘系统；</span><br><span class="line">第二步：划分一个40G的根（/）分区和一个8Gswap分区；</span><br><span class="line">第三步：配置开机密码；</span><br></pre></td></tr></table></figure>
+<h2 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h2><h3 id="磁盘阵列"><a href="#磁盘阵列" class="headerlink" title="磁盘阵列"></a>磁盘阵列</h3><p>RAID0：RAID 0 技术把多块物理硬盘设备（至少两块）通过硬件或软件的方式串联在一起，组成一个大的卷组，并将数据依次写入到各个物理硬盘中。这样一来，在理想的状态下，硬盘 设备的读写性能会提升数倍，但是若任意一块硬盘发生故障将导致整个系统的数据都受到破坏。<br>优点：条带化机制，一次性读两条，读取速度快；缺点：一块损坏，另一块也没用了。</p>
+<p>RAID5：RAID5 技术是把硬盘设备的数据奇偶校验信息保存到其他硬盘设备中。 RAID 5 磁盘阵列组中数据的奇偶校验信息并不是单独保存到某一块硬盘设备中，而是存储到 除自身以外的其他每一块硬盘设备上，这样的好处是其中任何一设备损坏后不至于出现致命缺陷。<br>优点：通过校验值进行恢复；缺点：数据恢复时会进行降级处理，当恢复海量数据时可能会丢失数据；</p>
+<p>RAID10：RAID 10 技术需要至少 4 块硬盘来组建，其中先分别两两制作成 RAID 1 磁盘阵列，以保 证数据的安全性；然后再对两个 RAID 1 磁盘阵列实施 RAID 0 技术，进一步提高硬盘设 备的读写速度。这样从理论上来讲，只要坏的不是同一组中的所有硬盘，那么多可以损 坏 50%的硬盘设备而不丢失数据。由于RAID 10技术继承了RAID 0的高读写速度和RAID 1 的数据安全性，在不考虑成本的情况下 RAID 10 的性能都超过了 RAID 5，因此当前成为广泛使用的一种存储技术。<br>优点：底层可以坏不同阵列的两块盘，注意两块盘不能坏在同一边；</p>
+<h2 id="第四天"><a href="#第四天" class="headerlink" title="第四天"></a>第四天</h2><h3 id="惠普服务器读取不到硬盘解决方法："><a href="#惠普服务器读取不到硬盘解决方法：" class="headerlink" title="惠普服务器读取不到硬盘解决方法："></a>惠普服务器读取不到硬盘解决方法：</h3><ol>
+<li>将光卡禁用后，重启服务器；</li>
+<li>然后将服务器改为直通类型，再次重启；</li>
+</ol>
+<h2 id="第五天"><a href="#第五天" class="headerlink" title="第五天"></a>第五天</h2><ol>
+<li>磁盘阵列的创建<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sda</span><br><span class="line">n-&gt;t-&gt;fd</span><br><span class="line">[root@teacher Desktop]<span class="comment"># partprobe /dev/sda</span></span><br><span class="line"></span><br><span class="line">[root@teacher Desktop]<span class="comment"># mdadm -C /dev/md0 -l5 -n3 -x1 /dev/sda[5-8]     </span></span><br><span class="line">-C:创建   md代表做出来的阵列盘符,0代表第一个盘符   -l代表级别  -n运行 -x备份，如果没有备份就不写</span><br><span class="line"></span><br><span class="line">[root@teacher Desktop]<span class="comment"># mdadm -D /dev/md0                 #查看详细信息</span></span><br><span class="line">[root@teacher Desktop]<span class="comment"># watch -n1 mdadm -D /dev/md0       #一秒看一次</span></span><br><span class="line"></span><br><span class="line">[root@teacher Desktop]<span class="comment"># mkfs.ext4 /dev/md0                #格式化</span></span><br><span class="line">[root@teacher Desktop]<span class="comment"># mkdir /mnt/md0              </span></span><br><span class="line">[root@teacher Desktop]<span class="comment"># mount /dev/md0 /mnt/md0/          #临时挂载</span></span><br><span class="line">[root@teacher Desktop]<span class="comment"># cp /etc/*.conf /mnt/md0/</span></span><br><span class="line"></span><br><span class="line">[root@teacher Desktop]<span class="comment"># mdadm /dev/md0 -f /dev/sda7       #损坏一块硬盘</span></span><br><span class="line">mdadm: <span class="built_in">set</span> /dev/sda7 faulty <span class="keyword">in</span> /dev/md0</span><br><span class="line"></span><br><span class="line">[root@teacher Desktop]<span class="comment"># mdadm /dev/md0 -r /dev/sda7       #移除</span></span><br><span class="line">mdadm: hot removed /dev/sda7 from /dev/md0</span><br><span class="line"> </span><br><span class="line">[root@teacher Desktop]<span class="comment"># mkfs.ext4 /dev/sda7</span></span><br><span class="line">[root@teacher Desktop]<span class="comment"># mdadm /dev/md0 -a /dev/sda7       #添加</span></span><br><span class="line">mdadm: added /dev/sda7</span><br><span class="line">[root@teacher Desktop]<span class="comment"># mdadm -D /dev/md0</span></span><br><span class="line"></span><br><span class="line">[root@teacher Desktop]<span class="comment"># umount /mnt/md0/</span></span><br><span class="line">[root@teacher Desktop]<span class="comment"># mkfs.ext4 /dev/md0                #重新格式化</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第四周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.1.1.</span> <span class="toc-text">远程访问的步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SCP%E7%9A%84%E8%BF%90%E7%94%A8"><span class="toc-number">1.1.2.</span> <span class="toc-text">SCP的运用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E9%95%9C%E5%83%8F%E5%86%99%E5%85%A5U%E7%9B%98"><span class="toc-number">1.2.1.</span> <span class="toc-text">将镜像写入U盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A3%85%E6%9C%BA"><span class="toc-number">1.2.2.</span> <span class="toc-text">装机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97"><span class="toc-number">1.3.1.</span> <span class="toc-text">磁盘阵列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第四天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%83%A0%E6%99%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AF%BB%E5%8F%96%E4%B8%8D%E5%88%B0%E7%A1%AC%E7%9B%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">1.4.1.</span> <span class="toc-text">惠普服务器读取不到硬盘解决方法：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%A4%A9"><span class="toc-number">1.5.</span> <span class="toc-text">第五天</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/31/lx4/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/07/31/lx4/&text=Week four"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/31/lx4/&title=Week four"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/31/lx4/&is_video=false&description=Week four"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Week four&body=Check out this article: http://yoursite.com/2020/07/31/lx4/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/31/lx4/&title=Week four"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/31/lx4/&title=Week four"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/31/lx4/&title=Week four"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/07/31/lx4/&title=Week four"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/31/lx4/&name=Week four&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 John Doe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>
