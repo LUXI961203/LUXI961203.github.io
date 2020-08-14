@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="第五周第一天热备份路由协议（HSRP） HSRP的状态： 1初始状态-&gt;学习状态-&gt;倾听状态-&gt;发言状态-&gt;备份状态-&gt;活跃状态; HSRP认证 1231. 通过在HRSP消息内插入共享的文明密码而实现；2. 防止将路由器错误地配置到其它的HSRP组内；3. 仅仅具有一定的安全性，明文传输； HSRP配置 1234567891011121314151617181920">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Week five">
+<meta property="og:url" content="http://yoursite.com/2020/08/14/lx5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第五周第一天热备份路由协议（HSRP） HSRP的状态： 1初始状态-&gt;学习状态-&gt;倾听状态-&gt;发言状态-&gt;备份状态-&gt;活跃状态; HSRP认证 1231. 通过在HRSP消息内插入共享的文明密码而实现；2. 防止将路由器错误地配置到其它的HSRP组内；3. 仅仅具有一定的安全性，明文传输； HSRP配置 1234567891011121314151617181920">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-14T08:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-14T08:00:13.642Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Week five</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+
+    
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    
+<script src="/lib/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">Hexo</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/08/07/lx4/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/14/lx5/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/08/14/lx5/&text=Week five"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/14/lx5/&title=Week five"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/14/lx5/&is_video=false&description=Week five"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Week five&body=Check out this article: http://yoursite.com/2020/08/14/lx5/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/14/lx5/&title=Week five"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/14/lx5/&title=Week five"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/14/lx5/&title=Week five"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/08/14/lx5/&title=Week five"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/14/lx5/&name=Week five&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第五周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%AD%E5%A4%87%E4%BB%BD%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%EF%BC%88HSRP%EF%BC%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">热备份路由协议（HSRP）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%A3%81%E7%9B%98%E7%9A%84%E8%AF%BB%E5%86%99%E8%83%BD%E5%8A%9B"><span class="toc-number">1.1.2.</span> <span class="toc-text">测试磁盘的读写能力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RIP%EF%BC%88%E8%B7%9D%E7%A6%BB%E7%9F%A2%E9%87%8F%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">RIP（距离矢量路由协议）</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Week five
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Hexo</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-08-14T08:00:00.000Z" itemprop="datePublished">2020-08-14</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="第五周"><a href="#第五周" class="headerlink" title="第五周"></a>第五周</h1><h2 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h2><h3 id="热备份路由协议（HSRP）"><a href="#热备份路由协议（HSRP）" class="headerlink" title="热备份路由协议（HSRP）"></a>热备份路由协议（HSRP）</h3><ol>
+<li>HSRP的状态： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">初始状态-&gt;学习状态-&gt;倾听状态-&gt;发言状态-&gt;备份状态-&gt;活跃状态;</span><br></pre></td></tr></table></figure></li>
+<li>HSRP认证 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 通过在HRSP消息内插入共享的文明密码而实现；</span><br><span class="line">2. 防止将路由器错误地配置到其它的HSRP组内；</span><br><span class="line">3. 仅仅具有一定的安全性，明文传输；</span><br></pre></td></tr></table></figure></li>
+<li>HSRP配置 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">    1.配置路由器为HSRP的成员，使用接口配置命令</span><br><span class="line">      standby 10 ip 192.168.10.254 <span class="comment">#配置HSRP虚拟IP</span></span><br><span class="line">    2.配置优先级</span><br><span class="line">      standby 10 priority 150      <span class="comment">#配置HSRP优先级</span></span><br><span class="line">    3.配置占先权</span><br><span class="line">      standby 10 preempt           <span class="comment">#配置HSRP抢先权</span></span><br><span class="line"><span class="comment">## 第二天</span></span><br><span class="line"><span class="comment">### smartctl的用法</span></span><br><span class="line">```bash</span><br><span class="line">yum -y install smartmontools //安装smartctl的包；</span><br><span class="line"></span><br><span class="line">smartctl -a 显示硬盘所有SMART信息。</span><br><span class="line"></span><br><span class="line">smartctl -i 显示硬盘model number, serial number,是否开启SMART等信息。</span><br><span class="line"></span><br><span class="line">smartctl -s on 如果没有打开SMART技术，使用该命令打开SMART技术。</span><br><span class="line"></span><br><span class="line">smartctl -t short 后台检测硬盘，消耗时间短</span><br><span class="line"></span><br><span class="line">smartctl -t long 后台检测硬盘，消耗时间长</span><br><span class="line"></span><br><span class="line">smartctl -C -t short 前台检测硬盘，消耗时间短</span><br><span class="line"></span><br><span class="line">smartctl -C -t long 前台检测硬盘，消耗时间长</span><br><span class="line"></span><br><span class="line">smartctl -X 中断后台检测硬盘。</span><br><span class="line"></span><br><span class="line">smartctl -l selftest 显示硬盘检测日志。</span><br><span class="line"></span><br><span class="line">smartctl -l error 显示硬盘错误汇总。</span><br></pre></td></tr></table></figure>
+<h3 id="测试磁盘的读写能力"><a href="#测试磁盘的读写能力" class="headerlink" title="测试磁盘的读写能力"></a>测试磁盘的读写能力</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 测试磁盘的写能力：</span><br><span class="line">time dd <span class="keyword">if</span>=/dev/zero of=/testw.dbf bs=4k count=100000；</span><br><span class="line">2. 测试磁盘的读能力：</span><br><span class="line">time dd <span class="keyword">if</span>=/dev/sdb of=/dev/null bs=4k；</span><br><span class="line">3. 测试磁盘的纯写入能力：</span><br><span class="line">dd <span class="keyword">if</span>=/dev/zero of=<span class="built_in">test</span> bs=8k count=10000 oflag=direct；</span><br><span class="line">4. 测试磁盘的纯读取能力：</span><br><span class="line">dd <span class="keyword">if</span>=<span class="built_in">test</span> of=/dev/null bs=8k count=10000 iflag=direct；</span><br></pre></td></tr></table></figure>
+<h2 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h2><h3 id="RIP（距离矢量路由协议）"><a href="#RIP（距离矢量路由协议）" class="headerlink" title="RIP（距离矢量路由协议）"></a>RIP（距离矢量路由协议）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. RIP的工作原理:</span><br><span class="line">  rip路由协议向邻居发送整个路由表信息；</span><br><span class="line">  rip路由协议以跳数作为度量值根据跳数的多少来选择最佳路由；</span><br><span class="line">  rip的最大跳数为15跳，16跳为不可达；</span><br><span class="line">  经过一系列的路由更新，网络中的每个路由器都具有一张完整的路由表的过程，称为收敛；</span><br><span class="line">2. RIPv1与RIPv2的区别：</span><br><span class="line">  rip1只支持有类路由，rip2支持有类和五类路由；</span><br><span class="line">  rip1不支持VLSM/CIDR，rip2支持；</span><br><span class="line">  rip1不支持连续的子网划分，rip2支持；</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第五周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%AD%E5%A4%87%E4%BB%BD%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%EF%BC%88HSRP%EF%BC%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">热备份路由协议（HSRP）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%A3%81%E7%9B%98%E7%9A%84%E8%AF%BB%E5%86%99%E8%83%BD%E5%8A%9B"><span class="toc-number">1.1.2.</span> <span class="toc-text">测试磁盘的读写能力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RIP%EF%BC%88%E8%B7%9D%E7%A6%BB%E7%9F%A2%E9%87%8F%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">RIP（距离矢量路由协议）</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/14/lx5/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/08/14/lx5/&text=Week five"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/14/lx5/&title=Week five"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/14/lx5/&is_video=false&description=Week five"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Week five&body=Check out this article: http://yoursite.com/2020/08/14/lx5/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/14/lx5/&title=Week five"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/14/lx5/&title=Week five"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/14/lx5/&title=Week five"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/08/14/lx5/&title=Week five"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/14/lx5/&name=Week five&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 John Doe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>
