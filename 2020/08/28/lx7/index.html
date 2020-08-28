@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="第七周第二天Shell脚本12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152531. 头格式：#！ &#x2F;bin&#x2F;bash；2.执行或调用脚本：sh+脚本，chomd+x 脚本 ，bash 脚本；3.脚本中的符号表示：$#:汇总脚本的个数；$0:输出运行脚本的名字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Week seven">
+<meta property="og:url" content="http://yoursite.com/2020/08/28/lx7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第七周第二天Shell脚本12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152531. 头格式：#！ &#x2F;bin&#x2F;bash；2.执行或调用脚本：sh+脚本，chomd+x 脚本 ，bash 脚本；3.脚本中的符号表示：$#:汇总脚本的个数；$0:输出运行脚本的名字">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-28T08:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-28T08:06:40.203Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Week seven</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+
+    
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    
+<script src="/lib/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">Hexo</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/08/21/lx6/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/28/lx7/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/08/28/lx7/&text=Week seven"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/28/lx7/&title=Week seven"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/28/lx7/&is_video=false&description=Week seven"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Week seven&body=Check out this article: http://yoursite.com/2020/08/28/lx7/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/28/lx7/&title=Week seven"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/28/lx7/&title=Week seven"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/28/lx7/&title=Week seven"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/08/28/lx7/&title=Week seven"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/28/lx7/&name=Week seven&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第七周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell%E8%84%9A%E6%9C%AC"><span class="toc-number">1.1.1.</span> <span class="toc-text">Shell脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SAMBA%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.2.1.</span> <span class="toc-text">SAMBA服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第四天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fping"><span class="toc-number">1.3.1.</span> <span class="toc-text">fping</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第五天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LVS%E5%8E%9F%E7%90%86%EF%BC%88Linux-Virtual-Server%EF%BC%8CLinux%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">LVS原理（Linux Virtual Server，Linux虚拟服务器）</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Week seven
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Hexo</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-08-28T08:00:00.000Z" itemprop="datePublished">2020-08-28</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="第七周"><a href="#第七周" class="headerlink" title="第七周"></a>第七周</h1><h2 id="第二天"><a href="#第二天" class="headerlink" title="第二天"></a>第二天</h2><h3 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">1. 头格式：</span><br><span class="line"><span class="comment">#！ /bin/bash；</span></span><br><span class="line"></span><br><span class="line">2.执行或调用脚本：</span><br><span class="line">sh+脚本，chomd+x 脚本 ，bash 脚本；</span><br><span class="line"></span><br><span class="line">3.脚本中的符号表示：</span><br><span class="line"><span class="variable">$#</span>:汇总脚本的个数；</span><br><span class="line"><span class="variable">$0</span>:输出运行脚本的名字；</span><br><span class="line"><span class="variable">$1</span>:输出脚本运行的第一个值；</span><br><span class="line"><span class="variable">$2</span>:输出脚本运行的第二个值；</span><br><span class="line"><span class="variable">$@</span> $*:输出脚本的统计结果；</span><br><span class="line">$$:输出脚本的进程号；</span><br><span class="line"></span><br><span class="line">4.shell的语法：</span><br><span class="line"><span class="keyword">if</span>条件判断语句：</span><br><span class="line">单分支语句：语法（<span class="keyword">if</span>+[ 条件 ] <span class="keyword">then</span> 语句1 语句2 <span class="keyword">fi</span>）</span><br><span class="line"></span><br><span class="line">双分支语句：</span><br><span class="line"><span class="keyword">if</span>+[ 条件 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">语句1</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">语句2</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">多分支语句：</span><br><span class="line"><span class="keyword">if</span>+[ 条件 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">语句1</span><br><span class="line"><span class="keyword">elif</span>+条件</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">语句2</span><br><span class="line"><span class="keyword">elif</span>+条件</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">语句3</span><br><span class="line"><span class="keyword">fi</span>（结束）</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span>语句：</span><br><span class="line"><span class="keyword">case</span>语句：条件判断；（比<span class="keyword">if</span>简洁）</span><br><span class="line">语法：</span><br><span class="line"><span class="keyword">case</span> 变量名 <span class="keyword">in</span></span><br><span class="line">模式1 ）</span><br><span class="line">命令序列;;</span><br><span class="line">模式2）</span><br><span class="line">命令序列;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>循环语句：</span><br><span class="line">语法：</span><br><span class="line"><span class="keyword">while</span>+条件</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">语句</span><br><span class="line"><span class="keyword">done</span>（结束）&lt;(将值往回倒);</span><br></pre></td></tr></table></figure>
+<h2 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h2><h3 id="SAMBA服务"><a href="#SAMBA服务" class="headerlink" title="SAMBA服务"></a>SAMBA服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">实现不同操作系统之间的共享；</span><br><span class="line">NAS服务：network area service；</span><br><span class="line">smb端口号：137或138</span><br><span class="line">nmbd：Windows的进程；端口号：139或445；</span><br><span class="line"></span><br><span class="line">smb的工作流程：</span><br><span class="line">client------------------server</span><br><span class="line">1.negitiate protocol 磋商协议</span><br><span class="line">------------negprot-----&gt;</span><br><span class="line">&lt;-----------negprot------</span><br><span class="line">2.session connection 会话连接</span><br><span class="line">------session setup-----&gt;</span><br><span class="line">&lt;-----session setup------</span><br><span class="line">3.access share <span class="built_in">source</span> 访问共享资源</span><br><span class="line">------tree connect------&gt;</span><br><span class="line">&lt;-----tree connect------</span><br><span class="line">4.disconnect 断开连接</span><br><span class="line">------tree disconnect--&gt;</span><br><span class="line">&lt;-----tree disconnect---</span><br><span class="line"></span><br><span class="line">smb主配置文件：</span><br><span class="line">[共享名]</span><br><span class="line">comment = 描述信息</span><br><span class="line">path = 共享文件夹的路径，必须是绝对路径；</span><br><span class="line">public = 文件是否公共访问，yes或no；</span><br><span class="line">writable = 文件的是否可写，yes或no，yes允许客户端写入内容；</span><br><span class="line">printable = 文件打印，no；</span><br><span class="line">write list = 允许对文件访问的用户列表，与public有冲突；</span><br><span class="line">browseable = 可浏览，no表示将共享文件隐藏，客户端不能看到；</span><br><span class="line">host allow = 指定网段访问共享文件，不能写域名，不写默认所有；</span><br></pre></td></tr></table></figure>
+
+<h2 id="第四天"><a href="#第四天" class="headerlink" title="第四天"></a>第四天</h2><h3 id="fping"><a href="#fping" class="headerlink" title="fping"></a>fping</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.fping的介绍：Fping类似于ping，但比ping强大。Fping与ping不同的地方在于，fping可以在命令行中指定要ping的主机数量范围，也可以指定含有要ping的主机列表文件。与ping要等待某一主机连接超时或发回反馈信息不同，fping给一个主机发送完数据包后，马上给下一个主机发送数据包，实现多主机同时ping。如果某一主机ping通，则此主机将被打上标记，并从等待列表中移除，如果没ping通，说明主机无法到达，主机仍然留在等待列表中，等待后续操作。</span><br><span class="line">2.fping的使用：</span><br><span class="line">-a：显示可ping通的目标;</span><br><span class="line">-A：将目标以ip地址的形式显示;</span><br><span class="line">-b:ping 数据包的大小。（默认为56）;</span><br><span class="line">-c:ping每个目标的次数 (默认为1);</span><br><span class="line">-g:通过指定开始和结束地址来生成目标列表（例如：./fping –g 192.168.1.0 192.168.1.255）或者一个IP/掩码形式（例如：./fping –g 192.168.1.0/24）;</span><br><span class="line">-l:循环发送ping;</span><br></pre></td></tr></table></figure>
+<h2 id="第五天"><a href="#第五天" class="headerlink" title="第五天"></a>第五天</h2><h3 id="LVS原理（Linux-Virtual-Server，Linux虚拟服务器）"><a href="#LVS原理（Linux-Virtual-Server，Linux虚拟服务器）" class="headerlink" title="LVS原理（Linux Virtual Server，Linux虚拟服务器）"></a>LVS原理（Linux Virtual Server，Linux虚拟服务器）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.特点：可伸缩网络服务的几种结构，它们都需要一个前端的负载调度器（或者多个进行主从备份）。我们先分析实现虚拟网络服务的主要技术，指出IP负载均衡技术是在负载调度器的实现技术中效率最高的。在已有的IP负载均衡技术中，主要有通过网络地址转换（Network Address Translation）将一组服务器构成一个高性能的、高可用的虚拟服务器，我们称之为VS/NAT技术（Virtual Server via Network Address Translation）。在分析VS/NAT的缺点和网络服务的非对称性的基础上，我们提出了通过IP隧道实现虚拟服务器的方法VS/TUN （Virtual Server via IP Tunneling），和通过直接路由实现虚拟服务器的方法VS/DR（Virtual Server via Direct Routing），它们可以极大地提高系统的伸缩性。VS/NAT、VS/TUN和VS/DR技术是LVS集群中实现的三种IP负载均衡技术。</span><br><span class="line">2.IP地址分为以下三种：</span><br><span class="line">Director Virtual IP:调度器用于与客户端通信的IP地址，简称为VIP</span><br><span class="line">Director IP:调度器用于与RealServer通信的IP地址，简称为DIP。</span><br><span class="line">Real Server : 后端主机的用于与调度器通信的IP地址，简称为RIP。</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E5%91%A8"><span class="toc-number">1.</span> <span class="toc-text">第七周</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="toc-number">1.1.</span> <span class="toc-text">第二天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shell%E8%84%9A%E6%9C%AC"><span class="toc-number">1.1.1.</span> <span class="toc-text">Shell脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="toc-number">1.2.</span> <span class="toc-text">第三天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SAMBA%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.2.1.</span> <span class="toc-text">SAMBA服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="toc-number">1.3.</span> <span class="toc-text">第四天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fping"><span class="toc-number">1.3.1.</span> <span class="toc-text">fping</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%A4%A9"><span class="toc-number">1.4.</span> <span class="toc-text">第五天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LVS%E5%8E%9F%E7%90%86%EF%BC%88Linux-Virtual-Server%EF%BC%8CLinux%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">LVS原理（Linux Virtual Server，Linux虚拟服务器）</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/28/lx7/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://yoursite.com/2020/08/28/lx7/&text=Week seven"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/28/lx7/&title=Week seven"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/28/lx7/&is_video=false&description=Week seven"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Week seven&body=Check out this article: http://yoursite.com/2020/08/28/lx7/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/28/lx7/&title=Week seven"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/28/lx7/&title=Week seven"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/28/lx7/&title=Week seven"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://yoursite.com/2020/08/28/lx7/&title=Week seven"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/28/lx7/&name=Week seven&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 John Doe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/LUXI961203/newproject.git">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>
